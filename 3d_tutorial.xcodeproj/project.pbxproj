@@ -19,6 +19,7 @@
 		0CB039A52482045800703C4F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0CB039A42482045800703C4F /* main.cpp */; };
 		0CB039A92482046800703C4F /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C406DDD245292EE005EBB7A /* GLUT.framework */; };
 		0CB039AA2482046800703C4F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C406DDC245292EE005EBB7A /* OpenGL.framework */; };
+		0CB039AC2486849200703C4F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBA341224650BAA000C48DA /* Carbon.framework */; };
 		0CBA340B2464F635000C48DA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA340A2464F635000C48DA /* main.cpp */; };
 		0CBA340F2464F640000C48DA /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C406DDD245292EE005EBB7A /* GLUT.framework */; };
 		0CBA34102464F640000C48DA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C406DDC245292EE005EBB7A /* OpenGL.framework */; };
@@ -122,9 +123,10 @@
 		0C406DF32452E135005EBB7A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0CB039A22482045800703C4F /* assignment_2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = assignment_2; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CB039A42482045800703C4F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0CB039AB2486783500703C4F /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ground.jpg; path = ../../../../../../Downloads/ground.jpg; sourceTree = "<group>"; };
 		0CBA34082464F635000C48DA /* tut9_texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tut9_texture; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CBA340A2464F635000C48DA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		0CBA341124650147000C48DA /* textureViewer */ = {isa = PBXFileReference; lastKnownFileType = file; name = textureViewer; path = "../../../../../../Downloads/simpletexture-2/textureViewer"; sourceTree = "<group>"; };
+		0CBA341124650147000C48DA /* textureViewer */ = {isa = PBXFileReference; lastKnownFileType = text; name = textureViewer; path = "../../../../../../Downloads/simpletexture-2/textureViewer"; sourceTree = "<group>"; };
 		0CBA341224650BAA000C48DA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		0CBA341424650CE4000C48DA /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		0CBA341524651127000C48DA /* greyscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyscale.png; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		0CBA342524651566000C48DA /* greyscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyscale.png; sourceTree = "<group>"; };
 		0CBF754D245BFA820002524C /* tut8_wave */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tut8_wave; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CBF754F245BFA820002524C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0CC5B5AC24877BE600D38497 /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ground.jpg; path = ../../../../../../../Downloads/ground.jpg; sourceTree = "<group>"; };
 		0CC783B2246E2B9800001D11 /* tut10_cannon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tut10_cannon; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC783B4246E2B9800001D11 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CB039A92482046800703C4F /* GLUT.framework in Frameworks */,
+				0CB039AC2486849200703C4F /* Carbon.framework in Frameworks */,
 				0CB039AA2482046800703C4F /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +235,7 @@
 				0CB039A32482045800703C4F /* assignment_2 */,
 				0C406DC7245291EA005EBB7A /* Products */,
 				0CBA342524651566000C48DA /* greyscale.png */,
+				0CB039AB2486783500703C4F /* ground.jpg */,
 				0C406DDB245292EE005EBB7A /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -287,6 +292,8 @@
 		0CB039A32482045800703C4F /* assignment_2 */ = {
 			isa = PBXGroup;
 			children = (
+				0CBA341424650CE4000C48DA /* stb_image.h */,
+				0CC5B5AC24877BE600D38497 /* ground.jpg */,
 				0CB039A42482045800703C4F /* main.cpp */,
 			);
 			path = assignment_2;
@@ -295,7 +302,6 @@
 		0CBA34092464F635000C48DA /* tut9_texture */ = {
 			isa = PBXGroup;
 			children = (
-				0CBA341424650CE4000C48DA /* stb_image.h */,
 				0CBA341524651127000C48DA /* greyscale.png */,
 				0CBA340A2464F635000C48DA /* main.cpp */,
 			);
@@ -628,6 +634,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = BX6YD953QM;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -686,6 +693,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = BX6YD953QM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

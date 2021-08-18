@@ -64,7 +64,7 @@ float partATexCoord[8] = {
 
 GLuint zBack, xRight, zFront, xLeft, bottom, top;
 
-GLuint texture;
+GLuint ground;
 
 // load a texture from file using the stb_image library
 uint32_t loadTexture(const char* filename) {
@@ -221,7 +221,7 @@ void drawBox(){
 
 void drawGrid(){
     
-    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindTexture(GL_TEXTURE_2D, ground);
         for (int i = 0; i < n; i++) {
             glBegin(GL_QUAD_STRIP);
             drawRow(i);
@@ -409,8 +409,8 @@ int main(int argc, char** argv)
     const char* file1 = "zpos.png";
     
     zBack = loadTexture(file1);
-    texture = loadTexture(argv[1]);
-    if (!texture || !zBack)  {
+    ground = loadTexture(argv[1]);
+    if (!ground || !zBack)  {
         printf("No texture created; exiting.\n");
         return EXIT_FAILURE;
     }

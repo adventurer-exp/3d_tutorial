@@ -25,7 +25,7 @@
 #include <SOIL.h>
 #endif
 
-GLuint texture;
+GLuint ground;
 
 // load a texture from file using the stb_image library
 uint32_t loadTexture(const char* filename) {
@@ -78,7 +78,7 @@ void display(void)
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   glEnable(GL_TEXTURE_2D);
-  glBindTexture(GL_TEXTURE_2D, texture);
+  glBindTexture(GL_TEXTURE_2D, ground);
 
   glBegin(GL_QUADS);
   glTexCoord2f(0, 0);
@@ -106,8 +106,8 @@ int main(int argc, char **argv)
     return EXIT_FAILURE;
   }
 
-  texture = loadTexture(argv[1]);
-  if (!texture)  {
+  ground = loadTexture(argv[1]);
+  if (!ground)  {
     printf("No texture created; exiting.\n");
     return EXIT_FAILURE;
   }

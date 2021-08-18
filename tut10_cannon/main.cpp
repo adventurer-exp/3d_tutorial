@@ -87,18 +87,76 @@ void convertPolToCar() {
 }
 
 void drawProjectile(){
-    glColor3f(1.0, 1.0, 1.0);
-        glPushMatrix();
+    if (go) {
+        glColor3f(1.0, 1.0, 1.0);
+            glPushMatrix();
 
-        glTranslatef(projectile.r.x, projectile.r.y, projectile.r.z);
-    //    printf("r x: %.2f, r y: %.2f\n", projectile.r.x, projectile.r.y);
-    glutWireSphere(0.05, 8, 8);
+            glTranslatef(projectile.r.x, projectile.r.y, projectile.r.z);
 
+        glutWireSphere(0.05, 8, 8);
+
+        glPopMatrix();
+    } else {
+        glColor3f(1.0, 1.0, 1.0);
+            glPushMatrix();
+
+            glTranslatef(projectile.r0.x, projectile.r0.y, projectile.r0.z);
+        
+        glutWireSphere(0.05, 8, 8);
+
+        glPopMatrix();
+    }
+    
+    
+}
+
+float calculateProjMotion(float dt, float v0y, float ry){
+    return 1.0 / 2.0 * -0.25 * dt * dt + v0y * dt + ry;
+}
+
+void drawTrajectoryNumerical()
+{
+    float current_time = glutGet(GLUT_ELAPSED_TIME);
+    current_time /= 5000.0;
+    
+    float left = projectile.r.x;
+    float front = projectile.r.z;
+    float dt = .5;
+    float multiple_dt = 0.0;
+    
+    float x = projectile.r.x;
+    float y = projectile.r.y;
+    float z = projectile.r.z;
+    
+    glPushMatrix();
+    
+    glBegin(GL_LINE_STRIP);
+    glColor3f(1, 0.862745, 0.294117);
+    
+    while (y >= 0.0)
+    {
+        
+        
+            x = left + projectile.v0.x * multiple_dt;
+            z = front + projectile.v0.z * multiple_dt;
+            y = calculateProjMotion(multiple_dt, projectile.v0.y, projectile.r.y);
+            
+            x = x - projectile.r.x + projectile.r0.x;
+            y = y - projectile.r.y + projectile.r0.y;
+            z = z - projectile.r.z + projectile.r0.z;
+        printf("x = %f, y = %f, z = %f \n", x, y, z);
+            glVertex3f(x, y, z);
+        multiple_dt += dt;
+    }
+    
+    glEnd();
     glPopMatrix();
 }
 
 void updateProjectileStateNumerical(float dt)
 {
+    if (projectile.r.y < 0.0)
+        go = false;
     // Euler integration
     
     // Position
@@ -140,9 +198,12 @@ void update(void)
     dt = t - lastT;
     
     lastT = t;
-       
+    
+    convertPolToCar();
+    
     if (go)
         updateProjectileStateNumerical(dt);
+
     
     glutPostRedisplay();
 }
@@ -181,7 +242,7 @@ void drawPlatform() {
     glEnd();
 }
 
-void drawCanon(){
+void drawTurret(){
     glPushMatrix();
     drawAxes(0.2);
     glBegin(GL_LINE_LOOP);
@@ -215,11 +276,12 @@ void display(void)
     
 //    glRotatef(30, 0.0, 1.0, 0.0);
     
-    drawCanon();
+    drawTurret();
     glPopMatrix();
     glPopMatrix();
     drawProjectile();
     
+    drawTrajectoryNumerical();
     
     glutSwapBuffers();
     
@@ -324,6 +386,10 @@ void keyboardCB(unsigned char key, int x, int y)
                 projectile.v.x = projectile.v0.x;
                 projectile.v.y = projectile.v0.y;
                 projectile.v.z = projectile.v0.z;
+                
+                projectile.r.x = projectile.r0.x;
+                projectile.r.y = projectile.r0.y;
+                projectile.r.z = projectile.r0.z;
             }
             break;
         default:
